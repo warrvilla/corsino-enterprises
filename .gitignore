@@ -1,0 +1,24 @@
+# OS junk
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Design source files
+*.psd
+*.ai
+
+# Original full-resolution photos (~44 MB).
+# The web-ready copies the site actually uses live in images/ and ARE committed.
+# Keeping these out stops the repo bloating and stops Vercel serving 14 MB JPEGs.
+# Back them up somewhere else — Drive, an external disk — not in this repo.
+/hero image.jpg
+/custom packaging.jpg
+/production facility.jpg
+/lamination process.jpg
+/die cutting.jpg
+/emboss.jpg
+/logo.png
+
+# Superseded by index.html
+/corsino.html

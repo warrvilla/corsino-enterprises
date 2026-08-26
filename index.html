@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Corsino Enterprises — Precision Packaging &amp; Finishing | Pasay City</title>
+
+  <meta name="description" content="Corsino Enterprises offers die making, die cutting, thermal and UV lamination, 3D spot UV, dry emboss, paper bag making and custom box packaging in Pasay City, Philippines. Economical and quality finishing service."/>
+  <meta name="theme-color" content="#0a0a0a"/>
+  <link rel="canonical" href="https://corsinoenterprises.com/"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Corsino Enterprises — Precision Packaging &amp; Finishing"/>
+  <meta property="og:description" content="Die making, lamination, UV coating, custom packaging and specialty finishing. Economical and quality service in Pasay City, Philippines."/>
+  <meta property="og:image" content="images/hero-1600.jpg"/>
+  <meta property="og:locale" content="en_PH"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red:       #c8102e;
+      --red-hover: #a50d25;
+      --black:     #0a0a0a;
+      --ink:       #111111;
+      --mid:       #555555;
+      --faint:     #8d8d8d;
+      --rule:      #e4e4e2;
+      --bg:        #f9f9f7;
+      --white:     #ffffff;
+      --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+      --sans:      'Outfit', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --serif:     'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      /* Numerals: plain sans, evenly spaced, no serif flourish */
+      --num:       var(--sans);
+      --nav-h:     68px;
+    }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    /* Fixed nav would otherwise cover a section heading when jumping to it */
+    section[id], div[id] { scroll-margin-top: calc(var(--nav-h) + 8px); }
+    /* Long unbroken strings (email addresses) must never force a sideways scroll */
+    p, a, span, li, h1, h2, h3 { overflow-wrap: break-word; }
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -webkit-tap-highlight-color: rgba(200, 16, 46, 0.14);
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { color: inherit; }
+
+    /* Every number on the page uses this — plain sans figures, evenly spaced.
+       Weight is left to whatever element it sits in, so inline numbers in a
+       sentence don't look bolder than the words around them. */
+    .num {
+      font-family: var(--num);
+      font-variant-numeric: tabular-nums lining-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+      letter-spacing: 0;
+    }
+
+    /* Cormorant Garamond ships oldstyle figures by default — its digits sit at
+       x-height with descenders, so a "3" next to a capital "D" looks broken.
+       Ask for lining figures on all display serif text... */
+    .hero-title, .sec-title, .cta-title, .svc-feat-title, .svc-cell-name,
+    .proc-title, .form-heading, .gal-label-text, .mm-link, .svc-prompt-t,
+    .hero-caption-main {
+      font-variant-numeric: lining-nums;
+      font-feature-settings: "lnum" 1;
+    }
+    /* ...and for digits sitting inside a serif heading, don't rely on the
+       webfont exposing that feature at all — set them in the sans instead.
+       Sized down slightly because Outfit runs larger on the body than
+       Cormorant's delicate capitals. */
+    .fig {
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.92em;
+      letter-spacing: 0;
+      font-variant-numeric: lining-nums;
+    }
+
+    /* ── ACCESSIBILITY ── */
+    .skip {
+      position: absolute; left: -9999px; top: 0; z-index: 999;
+      background: var(--black); color: var(--white); padding: 0.8rem 1.4rem;
+      font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    }
+    .skip:focus { left: 0; }
+    a:focus-visible, button:focus-visible, input:focus-visible,
+    select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--red); outline-offset: 3px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4rem; height: var(--nav-h);
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled { border-color: var(--rule); box-shadow: 0 1px 20px rgba(0,0,0,0.04); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; color: var(--black);
+    }
+    .nav-logo img { width: 34px; height: 21px; object-fit: contain; flex-shrink: 0; }
+    .nav-logo-text {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 0.88rem; letter-spacing: 0.08em; text-transform: uppercase;
+      line-height: 1;
+    }
+    .nav-logo-text small {
+      display: block; font-size: 0.56rem; font-weight: 400;
+      letter-spacing: 0.19em; color: var(--faint); margin-top: 3px;
+    }
+    .nav-center {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 2.6rem; list-style: none;
+    }
+    .nav-center a {
+      font-size: 0.8rem; font-weight: 400; letter-spacing: 0.03em;
+      color: var(--mid); text-decoration: none; transition: color 0.2s;
+      position: relative; padding: 4px 0;
+    }
+    .nav-center a::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
+      transition: transform .3s var(--ease);
+    }
+    .nav-center a:hover, .nav-center a.active { color: var(--black); }
+    .nav-center a:hover::after, .nav-center a.active::after { transform: scaleX(1); }
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-tel {
+      font-size: 0.8rem; font-weight: 400; color: var(--mid);
+      text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s;
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .nav-tel svg { width: 13px; height: 13px; color: var(--red); flex-shrink: 0; }
+    .nav-tel:hover { color: var(--black); }
+    .nav-cta {
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--white); background: var(--black);
+      padding: 0.58rem 1.4rem; text-decoration: none;
+      border: 1px solid var(--black); transition: background .25s, color .25s;
+    }
+    .nav-cta:hover { background: var(--red); border-color: var(--red); }
+
+    /* Mobile menu button */
+    .nav-burger {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 40px; height: 40px; padding: 10px; margin-right: -10px;
+    }
+    .nav-burger span {
+      display: block; height: 1.5px; width: 100%; background: var(--black);
+      transition: transform .3s var(--ease), opacity .2s;
+    }
+    .nav-burger span + span { margin-top: 5px; }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed; inset: var(--nav-h) 0 0 0; z-index: 490;
+      background: var(--white); padding: 2rem 1.5rem 3rem;
+      display: flex; flex-direction: column;
+      transform: translateY(-8px); opacity: 0; pointer-events: none;
+      transition: opacity .28s var(--ease), transform .28s var(--ease);
+      overflow-y: auto;
+    }
+    .mobile-menu.open { opacity: 1; transform: none; pointer-events: auto; }
+    .mobile-menu a.mm-link {
+      font-family: var(--serif); font-size: 1.85rem; font-weight: 300;
+      color: var(--black); text-decoration: none;
+      padding: 1rem 0; border-bottom: 1px solid var(--rule);
+    }
+    .mobile-menu .mm-foot { margin-top: 2.25rem; display: flex; flex-direction: column; gap: 0.9rem; }
+    .mobile-menu .mm-foot a {
+      font-size: 0.86rem; color: var(--mid); text-decoration: none;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .mobile-menu .mm-foot svg { width: 14px; height: 14px; color: var(--red); flex-shrink: 0; }
+    .mm-cta {
+      margin-top: 2rem; text-align: center; background: var(--black); color: var(--white);
+      padding: 1rem; text-decoration: none; font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+    }
+    body.menu-open { overflow: hidden; }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: var(--nav-h);
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 100svh;
+    }
+    .hero-left {
+      padding: 5.5rem 4rem 5rem;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      background: var(--bg); border-right: 1px solid var(--rule);
+    }
+    .hero-eyebrow {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 1.8rem;
+      display: flex; align-items: center; gap: 0.7rem;
+      opacity: 0; animation: up 0.7s 0.3s var(--ease) forwards;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--red); }
+    .hero-title {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(3rem, 6.2vw, 6.6rem);
+      line-height: 1.02; letter-spacing: -0.015em; color: var(--black);
+      margin-bottom: 2.25rem;
+      opacity: 0; animation: up 0.85s 0.42s var(--ease) forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--red); }
+    .hero-body {
+      font-size: 0.95rem; color: var(--mid); line-height: 1.8;
+      max-width: 420px; margin-bottom: 2.5rem;
+      opacity: 0; animation: up 0.7s 0.62s var(--ease) forwards;
+    }
+    .hero-actions {
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: up 0.7s 0.78s var(--ease) forwards;
+    }
+    .btn-primary {
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--white); background: var(--black);
+      padding: 0.9rem 2.1rem; text-decoration: none;
+      border: 1px solid var(--black); transition: background .25s, border-color .25s;
+    }
+    .btn-primary:hover { background: var(--red); border-color: var(--red); }
+    .btn-ghost {
+      font-size: 0.76rem; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--black); padding: 0.9rem 2.1rem;
+      text-decoration: none; border: 1px solid var(--rule);
+      transition: border-color .25s, background .25s; background: transparent;
+    }
+    .btn-ghost:hover { border-color: var(--ink); background: var(--white); }
+    .hero-stats {
+      display: flex; gap: 0; margin-top: 4rem;
+      border-top: 1px solid var(--rule);
+      opacity: 0; animation: up 0.7s 0.95s var(--ease) forwards;
+    }
+    .hero-stat { flex: 1; padding: 1.5rem 1rem 1.5rem 0; border-right: 1px solid var(--rule); }
+    .hero-stat:last-child { border-right: none; padding-right: 0; }
+    .hero-stat + .hero-stat { padding-left: 1.25rem; }
+    .hero-stat-n {
+      font-size: 1.95rem; font-weight: 500; line-height: 1; color: var(--black);
+      letter-spacing: -0.015em;
+    }
+    .hero-stat-n sup { font-size: 0.85rem; color: var(--red); font-weight: 500; top: -0.55em; }
+    .hero-stat-l {
+      font-size: 0.66rem; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--faint); margin-top: 0.45rem;
+    }
+    .hero-right {
+      position: relative; overflow: hidden; background: #ddd;
+      opacity: 0; animation: fadeIn 1.2s 0.45s var(--ease) forwards;
+    }
+    .hero-right img { position: absolute; inset: 0; }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.48) 0%, transparent 55%);
+    }
+    .hero-caption {
+      position: absolute; bottom: 2.5rem; left: 2.5rem; right: 2.5rem;
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem;
+    }
+    .hero-caption-main {
+      font-family: var(--serif); font-style: italic;
+      font-weight: 300; font-size: 1.1rem; color: rgba(255,255,255,0.88); line-height: 1.35;
+    }
+    .hero-caption-sub {
+      font-size: 0.64rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.55); white-space: nowrap;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee { background: var(--black); overflow: hidden; height: 48px; }
+    .marquee-track {
+      display: flex; align-items: center; height: 100%; white-space: nowrap;
+      animation: scroll 34s linear infinite; width: max-content;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-item {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.42); padding: 0 2.2rem;
+    }
+    .marquee-dot { width: 3px; height: 3px; background: var(--red); opacity: 0.7; flex-shrink: 0; }
+
+    /* ── COMMON SECTION ── */
+    .wrap { padding: 7rem 4rem; }
+    .sec-header {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end;
+      padding-bottom: 3.5rem; border-bottom: 1px solid var(--rule); margin-bottom: 4rem;
+    }
+    .sec-eyebrow {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 1.2rem;
+    }
+    .sec-title {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(2rem, 3.8vw, 3.5rem);
+      line-height: 1.06; letter-spacing: -0.01em; color: var(--black);
+    }
+    .sec-title em { font-style: italic; color: var(--red); }
+    .sec-body { font-size: 0.92rem; color: var(--mid); line-height: 1.8; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--rule); border-top: 1px solid var(--rule);
+    }
+    .svc-feat {
+      grid-column: span 4;
+      display: grid; grid-template-columns: 1fr 2fr;
+      border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+      min-height: 360px;
+    }
+    .svc-feat-img { position: relative; overflow: hidden; border-right: 1px solid var(--rule); background: #ddd; }
+    .svc-feat-img img { position: absolute; inset: 0; }
+    .svc-feat-body {
+      padding: 3rem; background: var(--black); color: var(--white);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;
+    }
+    .svc-feat-tag {
+      font-size: 0.64rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--red);
+    }
+    .svc-feat-title {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(1.9rem, 3vw, 2.5rem); line-height: 1.08; color: var(--white);
+    }
+    .svc-feat-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 430px; }
+    .svc-feat-link {
+      font-size: 0.73rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--white); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.22); padding-bottom: 3px;
+      width: fit-content; transition: color .2s, border-color .2s;
+    }
+    .svc-feat-link:hover { color: var(--red); border-color: var(--red); }
+    .svc-cell {
+      border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+      padding: 2.25rem 1.85rem; transition: background .3s; position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .svc-cell:hover { background: var(--bg); }
+    .svc-cell-n {
+      font-size: 0.78rem; font-weight: 400; color: var(--faint);
+      margin-bottom: 1.6rem; letter-spacing: 0.06em;
+    }
+
+    /* Grid-filling prompt in the last services row */
+    .svc-prompt {
+      grid-column: span 3;
+      border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+      background: var(--bg);
+      padding: 2.25rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .svc-prompt-t {
+      font-family: var(--serif); font-weight: 400;
+      font-size: 1.5rem; line-height: 1.25; color: var(--black); max-width: 30ch;
+    }
+    .svc-prompt-t em { font-style: italic; color: var(--red); }
+    .svc-prompt-d { font-size: 0.82rem; color: var(--mid); margin-top: 0.45rem; max-width: 46ch; }
+    .svc-cell-icon { width: 28px; height: 28px; margin-bottom: 1.2rem; color: var(--red); }
+    .svc-cell-icon svg { width: 28px; height: 28px; }
+    .svc-cell-name {
+      font-family: var(--serif); font-weight: 500;
+      font-size: 1.2rem; line-height: 1.2; color: var(--black); margin-bottom: 0.55rem;
+    }
+    .svc-cell-desc { font-size: 0.79rem; color: var(--mid); line-height: 1.68; }
+    .svc-cell-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
+      transition: transform .4s var(--ease);
+    }
+    .svc-cell:hover .svc-cell-bar { transform: scaleX(1); }
+
+    /* ── ABOUT ── */
+    #about { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); }
+    .about-img { position: relative; overflow: hidden; min-height: 640px; border-right: 1px solid var(--rule); background: #ddd; }
+    .about-img img { position: absolute; inset: 0; }
+    .about-body {
+      padding: 6rem 5rem; background: var(--bg);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .about-body .sec-eyebrow { margin-bottom: 1.4rem; }
+    .about-body .sec-title { margin-bottom: 1.75rem; }
+    .about-body p { font-size: 0.92rem; color: var(--mid); line-height: 1.85; margin-bottom: 1.1rem; }
+    .about-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+      border: 1px solid var(--rule); margin-top: 3rem; background: var(--white);
+    }
+    .about-cell {
+      padding: 1.6rem 1.4rem;
+      border-right: 1px solid var(--rule);
+    }
+    .about-cell:last-child { border-right: none; }
+    .about-cell-n {
+      font-size: 2.15rem; font-weight: 500; line-height: 1; color: var(--black);
+      letter-spacing: -0.015em;
+    }
+    .about-cell-n sup { font-size: 0.9rem; color: var(--red); font-weight: 500; top: -0.6em; }
+    .about-cell-l {
+      font-size: 0.67rem; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--faint); margin-top: 0.45rem;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; height: 480px; border-top: 1px solid var(--rule); }
+    .gal-cell { position: relative; overflow: hidden; border-right: 1px solid var(--rule); background: #ddd; }
+    .gal-cell:last-child { border-right: none; }
+    .gal-cell img { transition: transform .7s var(--ease); }
+    .gal-cell:hover img { transform: scale(1.05); }
+    .gal-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.4rem 1.6rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%);
+    }
+    .gal-label-text {
+      font-family: var(--serif); font-style: italic;
+      font-weight: 300; font-size: 1rem; color: rgba(255,255,255,0.9);
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--white); }
+    .proc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--rule); border-top: 1px solid var(--rule);
+    }
+    .proc-cell {
+      border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+      padding: 2.75rem 2.25rem; transition: background .3s;
+    }
+    .proc-cell:hover { background: var(--bg); }
+    .proc-n {
+      font-size: 2.4rem; font-weight: 600; line-height: 1;
+      color: var(--rule); margin-bottom: 1.8rem; letter-spacing: -0.02em;
+      transition: color .3s;
+    }
+    .proc-cell:hover .proc-n { color: var(--red); }
+    .proc-title {
+      font-family: var(--serif); font-weight: 500;
+      font-size: 1.32rem; color: var(--black); margin-bottom: 0.65rem;
+    }
+    .proc-desc { font-size: 0.81rem; color: var(--mid); line-height: 1.72; }
+
+    /* ── CTA (full-width band) ── */
+    #cta {
+      position: relative; overflow: hidden;
+      background: var(--black); color: var(--white);
+      padding: 7rem 4rem; text-align: center;
+      border-top: 1px solid var(--rule);
+    }
+    #cta::after {
+      content: ''; position: absolute; right: -6%; top: 50%; transform: translateY(-50%);
+      width: 460px; height: 460px; opacity: 0.06; pointer-events: none;
+      background: url('images/logo.png') center/contain no-repeat;
+    }
+    .cta-inner { position: relative; max-width: 720px; margin: 0 auto; }
+    .cta-eyebrow {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 1.6rem;
+    }
+    .cta-title {
+      font-family: var(--serif); font-weight: 300;
+      font-size: clamp(2.2rem, 4.2vw, 3.7rem);
+      line-height: 1.06; letter-spacing: -0.01em; color: var(--white); margin-bottom: 1.4rem;
+    }
+    .cta-title em { font-style: italic; color: var(--red); }
+    .cta-sub {
+      font-size: 0.92rem; color: rgba(255,255,255,0.52); line-height: 1.85;
+      margin: 0 auto 2.75rem; max-width: 520px;
+    }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      font-size: 0.76rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--black); background: var(--white);
+      padding: 0.95rem 2.1rem; text-decoration: none; border: 1px solid var(--white);
+      transition: background .25s, color .25s, border-color .25s;
+    }
+    .btn-white:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+    .btn-white-ghost {
+      font-size: 0.76rem; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      padding: 0.95rem 2.1rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.22);
+      transition: border-color .25s, color .25s;
+    }
+    .btn-white-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+
+    /* ── CONTACT ── */
+    #contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--rule); }
+    .contact-l { padding: 6rem 4rem; background: var(--bg); border-right: 1px solid var(--rule); }
+    .contact-l .sec-eyebrow { margin-bottom: 1.4rem; }
+    .contact-l .sec-title { margin-bottom: 1.75rem; }
+    .contact-l > p { font-size: 0.9rem; color: var(--mid); line-height: 1.85; margin-bottom: 2.5rem; max-width: 420px; }
+    .contact-rows { border: 1px solid var(--rule); background: var(--white); }
+    .contact-row {
+      display: flex; align-items: baseline; gap: 1.5rem;
+      padding: 1.15rem 1.4rem; border-bottom: 1px solid var(--rule);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row-k {
+      font-size: 0.63rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--red); flex: 0 0 74px;
+    }
+    .contact-row-v { font-size: 0.86rem; color: var(--mid); line-height: 1.55; }
+    a.contact-row-v { text-decoration: none; transition: color .2s; }
+    a.contact-row-v:hover { color: var(--black); }
+    .contact-r { padding: 6rem 4rem; background: var(--white); }
+    .form-heading {
+      font-family: var(--serif); font-weight: 400;
+      font-size: 1.5rem; letter-spacing: -0.01em; color: var(--black); margin-bottom: 0.5rem;
+    }
+    .form-note { font-size: 0.78rem; color: var(--faint); margin-bottom: 2rem; line-height: 1.6; }
+    .form-grid { border: 1px solid var(--rule); }
+    .form-band { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--rule); }
+    .form-band:last-child { border-bottom: none; }
+    .form-f { display: flex; flex-direction: column; border-right: 1px solid var(--rule); min-width: 0; }
+    .form-f:last-child { border-right: none; }
+    .form-f-full { grid-column: span 2; border-right: none; }
+    .form-lbl {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--faint); padding: 0.9rem 1.2rem 0.35rem;
+    }
+    .form-inp, .form-sel, .form-ta {
+      background: transparent; border: none; outline: none;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 300;
+      color: var(--black); padding: 0.35rem 1.2rem 0.9rem; width: 100%;
+      transition: background .2s; -webkit-appearance: none; border-radius: 0;
+    }
+    .form-f:focus-within { background: #fafaf8; }
+    .form-ta { resize: vertical; min-height: 105px; font-family: var(--sans); }
+    /* appearance:none strips the native arrow — put one back so it still reads as a dropdown */
+    .form-sel {
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%23888' stroke-width='1.5' d='M1 1.5 6 6.5l5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.2rem center;
+      background-size: 11px 8px;
+      padding-right: 2.8rem;
+    }
+    .form-sel option { background: var(--white); }
+    .form-btn {
+      width: 100%; padding: 1.1rem; background: var(--black); color: var(--white);
+      font-family: var(--sans); font-size: 0.76rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; border: none; cursor: pointer;
+      margin-top: 1.4rem; transition: background .25s;
+    }
+    .form-btn:hover { background: var(--red); }
+    .form-alt {
+      margin-top: 1.1rem; font-size: 0.78rem; color: var(--faint); text-align: center; line-height: 1.7;
+    }
+    .form-alt a { color: var(--mid); text-decoration: underline; text-underline-offset: 3px; }
+    .form-alt a:hover { color: var(--red); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); border-top: 1px solid #1e1e1e; padding: 0 4rem; }
+    .foot-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem;
+      padding: 4.5rem 0 3.5rem; border-bottom: 1px solid #1e1e1e;
+    }
+    .foot-brand {
+      display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;
+    }
+    .foot-brand img { width: 36px; height: 22px; object-fit: contain; }
+    .foot-brand-text {
+      font-family: var(--sans); font-weight: 600;
+      font-size: 0.86rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--white); line-height: 1;
+    }
+    .foot-brand-text small {
+      display: block; font-size: 0.55rem; font-weight: 400;
+      letter-spacing: 0.19em; color: rgba(255,255,255,0.35); margin-top: 3px;
+    }
+    .foot-desc { font-size: 0.79rem; color: rgba(255,255,255,0.35); line-height: 1.75; max-width: 260px; }
+    .foot-col-title {
+      font-size: 0.62rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 1.25rem;
+    }
+    .foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .foot-links a, .foot-links span {
+      font-size: 0.79rem; color: rgba(255,255,255,0.35); text-decoration: none;
+      transition: color .2s; line-height: 1.6;
+    }
+    .foot-links a:hover { color: var(--white); }
+    .foot-social { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .foot-social a {
+      width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.16);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.5); transition: border-color .25s, color .25s, background .25s;
+    }
+    .foot-social a:hover { border-color: var(--red); background: var(--red); color: var(--white); }
+    .foot-social svg { width: 15px; height: 15px; }
+    .foot-bottom {
+      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+      padding: 1.7rem 0; font-size: 0.71rem; color: rgba(255,255,255,0.28); flex-wrap: wrap;
+    }
+
+    /* ── MOBILE STICKY CONTACT BAR ── */
+    .mobile-bar {
+      display: none;
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 480;
+      background: var(--black); border-top: 1px solid #222;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .mobile-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.95rem 0.5rem; text-decoration: none;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .mobile-bar a + a { border-left: 1px solid #222; }
+    .mobile-bar a.primary { background: var(--red); color: var(--white); }
+    .mobile-bar svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .rd1 { transition-delay: .09s; }
+    .rd2 { transition-delay: .17s; }
+    .rd3 { transition-delay: .25s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      [class*="hero-"] { opacity: 1 !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1180px) {
+      nav { padding: 0 2rem; }
+      .nav-center { gap: 1.8rem; }
+      .wrap { padding: 5.5rem 2rem; }
+      .hero-left { padding: 4.5rem 2rem 3.5rem; }
+      .about-body, .contact-l, .contact-r { padding: 4.5rem 2.5rem; }
+      #cta { padding: 5.5rem 2rem; }
+      footer { padding: 0 2rem; }
+      .svc-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-feat { grid-column: span 2; }
+      .svc-prompt { grid-column: span 1; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem; }
+      .proc-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      :root { --nav-h: 62px; }
+      nav { padding: 0 1.25rem; }
+      .nav-center, .nav-right .nav-tel, .nav-right .nav-cta { display: none; }
+      .nav-burger { display: block; }
+      .nav-logo img { width: 30px; height: 19px; }
+
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 3.5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--rule); }
+      .hero-right { min-height: 72vw; }
+      .hero-caption { bottom: 1.5rem; left: 1.5rem; right: 1.5rem; }
+      .hero-caption-main { font-size: 0.98rem; }
+      .hero-stats { margin-top: 2.75rem; }
+      .hero-stat-n { font-size: 1.7rem; }
+      .hero-stat { padding-right: 0.75rem; }
+      .hero-stat + .hero-stat { padding-left: 0.9rem; }
+      .hero-stat-l { font-size: 0.6rem; letter-spacing: 0.09em; }
+      .about-cell { padding: 1.4rem 1rem; }
+      .about-cell-n { font-size: 1.8rem; }
+      .about-cell-l { font-size: 0.6rem; letter-spacing: 0.09em; }
+
+      .wrap { padding: 4rem 1.5rem; }
+      .sec-header { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 2.5rem; margin-bottom: 2.75rem; }
+
+      .svc-feat { grid-template-columns: 1fr; min-height: 0; }
+      .svc-feat-img { min-height: 55vw; border-right: none; border-bottom: 1px solid var(--rule); }
+      .svc-feat-body { padding: 2.25rem 1.5rem; }
+      /* Tighter cards so the stacked list isn't an endless scroll */
+      .svc-cell { padding: 1.55rem 1.4rem; }
+      .svc-cell-n { margin-bottom: 0.85rem; }
+      .svc-cell-icon { width: 24px; height: 24px; margin-bottom: 0.85rem; }
+      .svc-cell-icon svg { width: 24px; height: 24px; }
+
+      #about { grid-template-columns: 1fr; }
+      .about-img { min-height: 62vw; border-right: none; border-bottom: 1px solid var(--rule); }
+      .about-body { padding: 3.5rem 1.5rem; }
+
+      #gallery { grid-template-columns: 1fr 1fr; height: auto; }
+      .gal-cell { min-height: 44vw; }
+      .gal-cell:first-child { grid-column: span 2; min-height: 58vw; border-right: none; }
+      .gal-cell:nth-child(3) { border-right: none; }
+
+      .proc-cell { padding: 2rem 1.5rem; }
+
+      #cta { padding: 4.5rem 1.5rem; }
+      #cta::after { width: 300px; height: 300px; right: -18%; }
+
+      #contact { grid-template-columns: 1fr; }
+      .contact-l { border-right: none; border-bottom: 1px solid var(--rule); padding: 3.5rem 1.5rem; }
+      .contact-r { padding: 3.5rem 1.5rem; }
+
+      .foot-top { grid-template-columns: 1fr 1fr; gap: 2.25rem; padding: 3rem 0 2.5rem; }
+      .foot-top > div:first-child { grid-column: span 2; }
+      footer { padding: 0 1.5rem 4.6rem; }
+      .foot-bottom { padding: 1.4rem 0; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+
+      .mobile-bar { display: flex; }
+
+      /* ── PHONE READABILITY ──
+         The small tracked uppercase labels drop to ~9-10px at desktop sizes,
+         which is unreadable on a handset. Floor everything at ~11px. */
+      .hero-stat-l, .about-cell-l { font-size: 0.7rem; letter-spacing: 0.08em; }
+      .hero-eyebrow, .sec-eyebrow, .cta-eyebrow { font-size: 0.7rem; letter-spacing: 0.16em; }
+      .hero-caption-sub { font-size: 0.72rem; letter-spacing: 0.1em; }
+      /* Inline links inside sentences can't be 44px tall without breaking the line,
+         so widen their hit area vertically instead. */
+      .form-note a, .form-alt a { display: inline-block; padding: 0.3rem 0; }
+      .svc-feat-tag { font-size: 0.7rem; letter-spacing: 0.16em; }
+      .marquee-item { font-size: 0.72rem; letter-spacing: 0.15em; padding: 0 1.6rem; }
+      .svc-cell-desc, .proc-desc { font-size: 0.86rem; line-height: 1.7; }
+      .svc-cell-name { font-size: 1.28rem; }
+      .svc-feat-desc, .cta-sub, .sec-body { font-size: 0.92rem; }
+      .foot-desc, .foot-links a, .foot-links span { font-size: 0.85rem; }
+      .foot-col-title { font-size: 0.7rem; letter-spacing: 0.16em; }
+      .contact-row-k { font-size: 0.7rem; letter-spacing: 0.13em; }
+      .contact-row-v { font-size: 0.92rem; }
+      .form-lbl { font-size: 0.68rem; letter-spacing: 0.13em; }
+      .form-note, .form-alt { font-size: 0.84rem; }
+      .foot-bottom { font-size: 0.76rem; }
+
+      /* ── THUMB-SIZED TAP TARGETS ──
+         Anything tappable gets to ~44px, the size a fingertip actually hits. */
+      .foot-links { gap: 0; }
+      .foot-links li { display: flex; }
+      .foot-links a { padding: 0.62rem 0; min-height: 44px; display: flex; align-items: center; }
+      .foot-links span { padding: 0.62rem 0; }
+      .foot-social a { width: 44px; height: 44px; }
+      .foot-social svg { width: 17px; height: 17px; }
+      .contact-row { padding: 0.9rem 1.25rem; }
+      .contact-row a.contact-row-v { padding: 0.35rem 0; min-height: 40px; display: flex; align-items: center; }
+      .svc-feat-link { padding: 0.7rem 0; }
+      .nav-logo { padding: 0.5rem 0; }
+      .mm-foot a { min-height: 46px; padding: 0.35rem 0; }
+      .mobile-bar a { min-height: 52px; font-size: 0.75rem; }
+
+      /* ── FORM ──
+         16px minimum, otherwise iOS Safari zooms in on focus and never zooms back. */
+      .form-inp, .form-sel, .form-ta {
+        font-size: 16px; padding: 0.5rem 1.2rem 1rem;
+      }
+      .form-ta { min-height: 130px; }
+      .form-sel { padding-right: 2.8rem; min-height: 52px; }
+      .form-btn { padding: 1.25rem; font-size: 0.8rem; }
+    }
+
+    /* Phone held sideways: the hero photo would otherwise eat the whole screen */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .hero-right { min-height: 0; height: 70vh; }
+      .gal-cell, .gal-cell:first-child { min-height: 46vh; }
+      .about-img, .svc-feat-img { min-height: 60vh; }
+      .hero-left { padding-top: 2.25rem; padding-bottom: 2.25rem; }
+      .hero-body { margin-bottom: 1.75rem; }
+      .hero-stats { margin-top: 2rem; }
+    }
+
+    @media (max-width: 560px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-feat, .svc-prompt { grid-column: span 1; }
+      .proc-grid { grid-template-columns: 1fr; }
+      .form-band { grid-template-columns: 1fr; }
+      .form-f { border-right: none; border-bottom: 1px solid var(--rule); }
+      .form-band > .form-f:last-child { border-bottom: none; }
+      .form-f-full { grid-column: span 1; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions a { text-align: center; }
+      #gallery { grid-template-columns: 1fr; }
+      .gal-cell { border-right: none; border-bottom: 1px solid var(--rule); min-height: 62vw; }
+      .gal-cell:first-child { grid-column: span 1; }
+      /* Keep the two link lists side by side so the footer doesn't run on forever */
+      .foot-top { grid-template-columns: 1fr 1fr; gap: 1.75rem 1.25rem; }
+      .foot-top > div:first-child,
+      .foot-top > div:last-child { grid-column: span 2; }
+      .hero-caption { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .contact-row { flex-direction: column; gap: 0.15rem; align-items: stretch; }
+      .contact-row-k { flex: none; }
+      .contact-row a.contact-row-v { min-height: 44px; }
+      .svc-prompt { padding: 1.85rem 1.4rem; }
+      .svc-prompt .btn-primary { width: 100%; text-align: center; }
+      .cta-btns { flex-direction: column; align-items: stretch; }
+      .cta-btns a { text-align: center; }
+      .hero-title { font-size: clamp(2.6rem, 13vw, 3.4rem); }
+      .wrap { padding: 3.5rem 1.25rem; }
+      .hero-left { padding: 3rem 1.25rem 2.75rem; }
+      .about-body, .contact-l, .contact-r { padding: 3rem 1.25rem; }
+      .svc-feat-body { padding: 2rem 1.25rem; }
+      footer { padding: 0 1.25rem 4.6rem; }
+      #cta { padding: 4rem 1.25rem; }
+    }
+
+    /* Very narrow handsets (Galaxy Fold and similar) */
+    @media (max-width: 340px) {
+      .hero-title { font-size: 2.35rem; }
+      .hero-stat-l, .about-cell-l { font-size: 0.66rem; letter-spacing: 0.04em; }
+      .mobile-bar a { font-size: 0.68rem; gap: 0.3rem; }
+      .nav-logo-text { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero" aria-label="Corsino Enterprises — home">
+    <img src="images/logo.png" alt="" width="34" height="21"/>
+    <span class="nav-logo-text">Corsino<small>Enterprises</small></span>
+  </a>
+  <ul class="nav-center">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+639478624409" class="nav-tel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="num">+63 947 862 4409</span>
+    </a>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="mm-link" href="#services">Services</a>
+  <a class="mm-link" href="#about">About</a>
+  <a class="mm-link" href="#process">Process</a>
+  <a class="mm-link" href="#contact">Contact</a>
+  <div class="mm-foot">
+    <a href="tel:+639478624409">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="num">+63 947 862 4409</span>
+    </a>
+    <a href="mailto:corsinoenterprises@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      corsinoenterprises@gmail.com
+    </a>
+    <a href="https://maps.google.com/?q=219+Vergel+corner+Tramo+Street+Pasay+City" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>219 Vergel cor. Tramo St., Pasay City</span>
+    </a>
+  </div>
+  <a class="mm-cta" href="#contact">Request a Quote</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Precision Packaging &amp; Finishing</p>
+    <h1 class="hero-title">
+      Elevating<br/>the Art<br/>of <em>Finishing.</em>
+    </h1>
+    <p class="hero-body">
+      Economical and quality service across die making, lamination, UV coating,
+      custom packaging, and specialty finishing — from our floor in Pasay City
+      to brands that refuse to settle.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#contact" class="btn-ghost">Request a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-n num">20<sup>+</sup></div>
+        <div class="hero-stat-l">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n num">10</div>
+        <div class="hero-stat-l">Core Services</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n num">100<sup>%</sup></div>
+        <div class="hero-stat-l">Quality Committed</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="images/hero-1600.jpg"
+         srcset="images/hero-800.jpg 800w, images/hero-1600.jpg 1600w"
+         sizes="(max-width: 900px) 100vw, 50vw"
+         width="1600" height="914" fetchpriority="high" decoding="async"
+         alt="Wide-format printing press running a full-colour sheet at Corsino Enterprises"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-caption">
+      <span class="hero-caption-main">Crafted with precision<br/>at every layer</span>
+      <span class="hero-caption-sub">Pasay City, Philippines</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Die Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Die Cutting</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Thermal Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">UV Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Window Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">3D Spot UV</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Dry Emboss</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Paper Bag Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Custom Box Packaging</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Automated Gluing</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Die Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Die Cutting</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Thermal Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">UV Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Window Lamination</span><span class="marquee-dot"></span>
+    <span class="marquee-item">3D Spot UV</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Dry Emboss</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Paper Bag Making</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Custom Box Packaging</span><span class="marquee-dot"></span>
+    <span class="marquee-item">Automated Gluing</span><span class="marquee-dot"></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="wrap">
+  <div class="sec-header reveal">
+    <div>
+      <p class="sec-eyebrow">What We Do</p>
+      <h2 class="sec-title">Every finishing service<br/>your brand <em>demands.</em></h2>
+    </div>
+    <p class="sec-body">Ten precision services under one roof — from the die that shapes your packaging to the laminate that protects it. Corsino Enterprises delivers at every stage.</p>
+  </div>
+  <div class="svc-grid">
+
+    <!-- Featured -->
+    <div class="svc-feat">
+      <div class="svc-feat-img">
+        <img src="images/custom-packaging-1600.jpg"
+             srcset="images/custom-packaging-800.jpg 800w, images/custom-packaging-1600.jpg 1600w"
+             sizes="(max-width: 900px) 100vw, 33vw"
+             width="1600" height="1065" loading="lazy" decoding="async"
+             alt="Operator running folded kraft boxes through an automated folder-gluer machine"/>
+      </div>
+      <div class="svc-feat-body">
+        <p class="svc-feat-tag">Flagship Service</p>
+        <h3 class="svc-feat-title">Custom Box<br/>Packaging</h3>
+        <p class="svc-feat-desc">Fully bespoke boxes — printed or unprinted — engineered to your exact structural specifications. Retail, gift, and industrial grades. Assembled with our automated gluing machine for consistent, production-grade output.</p>
+        <a href="#contact" class="svc-feat-link">Enquire about this service →</a>
+      </div>
+    </div>
+
+    <div class="svc-cell reveal">
+      <div class="svc-cell-n num">01</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3 class="svc-cell-name">Die Making</h3>
+      <p class="svc-cell-desc">Custom precision dies engineered for clean, repeatable cuts. Long-run durability and tight tolerances across complex profiles.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd1">
+      <div class="svc-cell-n num">02</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg></div>
+      <h3 class="svc-cell-name">Die Cutting</h3>
+      <p class="svc-cell-desc">High-precision cutting across paper, board, and specialty substrates. Consistent accuracy at volume.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd2">
+      <div class="svc-cell-n num">03</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <h3 class="svc-cell-name">Thermal Lamination</h3>
+      <p class="svc-cell-desc">Matte and gloss thermal laminates. Durable surface protection that preserves print quality for the long term.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd3">
+      <div class="svc-cell-n num">04</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/></svg></div>
+      <h3 class="svc-cell-name">UV Lamination</h3>
+      <p class="svc-cell-desc">Ultra-glossy UV coating that intensifies colour depth. Superior scratch and moisture resistance.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal">
+      <div class="svc-cell-n num">05</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="16"/><rect x="8" y="9" width="8" height="6"/></svg></div>
+      <h3 class="svc-cell-name">Window Lamination</h3>
+      <p class="svc-cell-desc">Crystal-clear window film for packaging. Let the product speak for itself while maintaining structural integrity.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd1">
+      <div class="svc-cell-n num">06</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <h3 class="svc-cell-name"><span class="fig">3</span>D Spot UV</h3>
+      <p class="svc-cell-desc">High-build three-dimensional UV effects. Maximum shelf presence. Unmistakable tactile quality at first touch.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd2">
+      <div class="svc-cell-n num">07</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M9 10a3 3 0 0 0 6 0"/></svg></div>
+      <h3 class="svc-cell-name">Paper Bag Making</h3>
+      <p class="svc-cell-desc">Premium retail and corporate paper bags. Fully customisable in size, material, handle type, and finish.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal rd3">
+      <div class="svc-cell-n num">08</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+      <h3 class="svc-cell-name">Dry Emboss</h3>
+      <p class="svc-cell-desc">Raised tactile embossing applied without ink. Sculptural depth that elevates any premium packaging brief.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-cell reveal">
+      <div class="svc-cell-n num">09</div>
+      <div class="svc-cell-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="7" width="20" height="12" rx="1"/><path d="M2 11h20"/><path d="M7 7V4h10v3"/></svg></div>
+      <h3 class="svc-cell-name">Automated Gluing</h3>
+      <p class="svc-cell-desc">Machine-fed folder-gluing for straight-line and crash-lock cartons. Clean seams and repeatable results at volume.</p>
+      <div class="svc-cell-bar"></div>
+    </div>
+    <div class="svc-prompt reveal">
+      <div>
+        <p class="svc-prompt-t">Not sure which finish your job <em>needs?</em></p>
+        <p class="svc-prompt-d">Send us the artwork and quantity — we will recommend the method and quote it the same way.</p>
+      </div>
+      <a href="#contact" class="btn-primary">Ask Us</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <img src="images/facility-1600.jpg"
+         srcset="images/facility-800.jpg 800w, images/facility-1600.jpg 1600w"
+         sizes="(max-width: 900px) 100vw, 50vw"
+         width="1600" height="900" loading="lazy" decoding="async"
+         alt="Die cutting press in operation on the Corsino Enterprises production floor"/>
+  </div>
+  <div class="about-body reveal">
+    <p class="sec-eyebrow">About Us</p>
+    <h2 class="sec-title">Quality is not<br/>an option —<br/>it is <em>standard.</em></h2>
+    <p>Corsino Enterprises has built its name on a single principle: every job that leaves our floor must meet an uncompromising standard of quality.</p>
+    <p>We combine industrial-grade equipment with experienced hands and rigorous quality control — delivering precision finishing that performs at scale without inflating cost.</p>
+    <div class="about-grid">
+      <div class="about-cell"><div class="about-cell-n num">20<sup>+</sup></div><div class="about-cell-l">Years in Business</div></div>
+      <div class="about-cell"><div class="about-cell-n num">10</div><div class="about-cell-l">Core Services</div></div>
+      <div class="about-cell"><div class="about-cell-n num">100<sup>%</sup></div><div class="about-cell-l">Quality Committed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" aria-label="Our work">
+  <div class="gal-cell">
+    <img src="images/lamination-1600.jpg"
+         srcset="images/lamination-800.jpg 800w, images/lamination-1600.jpg 1600w"
+         sizes="(max-width: 560px) 100vw, (max-width: 900px) 100vw, 50vw"
+         width="1600" height="1067" loading="lazy" decoding="async"
+         alt="Film roll feeding through a laminating machine"/>
+    <div class="gal-label"><span class="gal-label-text">Lamination, perfected</span></div>
+  </div>
+  <div class="gal-cell">
+    <img src="images/die-cutting-800.jpg"
+         srcset="images/die-cutting-800.jpg 800w, images/die-cutting-1600.jpg 1600w"
+         sizes="(max-width: 900px) 50vw, 25vw"
+         width="800" height="533" loading="lazy" decoding="async"
+         alt="Stack of cut sheets being loaded onto a guillotine cutter"/>
+    <div class="gal-label"><span class="gal-label-text">Die cutting at scale</span></div>
+  </div>
+  <div class="gal-cell">
+    <img src="images/emboss-678.jpg"
+         srcset="images/emboss-400.jpg 400w, images/emboss-678.jpg 678w"
+         sizes="(max-width: 900px) 50vw, 25vw"
+         width="678" height="452" loading="lazy" decoding="async"
+         alt="Blind-embossed monogram seal pressed into textured kraft packaging stock"/>
+    <div class="gal-label"><span class="gal-label-text">Emboss — felt, not seen</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="wrap">
+  <div class="sec-header reveal">
+    <div>
+      <p class="sec-eyebrow">How We Work</p>
+      <h2 class="sec-title">A process built on<br/><em>clarity and craft.</em></h2>
+    </div>
+    <p class="sec-body">From the first enquiry to the finished delivery — four steps that keep every project on time, on spec, and to standard.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-cell reveal">
+      <div class="proc-n num">01</div>
+      <h3 class="proc-title">Consult</h3>
+      <p class="proc-desc">Share your brief, quantities, substrate, and timeline. Our team advises on the optimal finishing method for your exact application.</p>
+    </div>
+    <div class="proc-cell reveal rd1">
+      <div class="proc-n num">02</div>
+      <h3 class="proc-title">Quote</h3>
+      <p class="proc-desc">Receive a clear, itemised quotation at competitive pricing. No hidden costs. No minimum order surprises.</p>
+    </div>
+    <div class="proc-cell reveal rd2">
+      <div class="proc-n num">03</div>
+      <h3 class="proc-title">Produce</h3>
+      <p class="proc-desc">Your job enters production on precision equipment. Quality is reviewed at every stage before final sign-off.</p>
+    </div>
+    <div class="proc-cell reveal rd3">
+      <div class="proc-n num">04</div>
+      <h3 class="proc-title">Deliver</h3>
+      <p class="proc-desc">Finished goods packed and dispatched on schedule. We do not ship until it meets our exacting standards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-inner reveal">
+    <p class="cta-eyebrow">Ready to Begin</p>
+    <h2 class="cta-title">Let's make your<br/>packaging <em>exceptional.</em></h2>
+    <p class="cta-sub">Tell us about your project and we will respond with a detailed proposal. No obligation — just straightforward expertise and competitive pricing.</p>
+    <div class="cta-btns">
+      <a href="#contact" class="btn-white">Get a Free Quote</a>
+      <a href="tel:+639478624409" class="btn-white-ghost">Call <span class="num">+63 947 862 4409</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-l reveal">
+    <p class="sec-eyebrow">Get in Touch</p>
+    <h2 class="sec-title">Start a<br/><em>conversation.</em></h2>
+    <p>Send us your project requirements and we will respond with a clear quotation and timeline. Every enquiry is handled personally.</p>
+    <div class="contact-rows">
+      <div class="contact-row">
+        <span class="contact-row-k">Address</span>
+        <a class="contact-row-v" href="https://maps.google.com/?q=219+Vergel+corner+Tramo+Street+Pasay+City" target="_blank" rel="noopener">219 Vergel corner Tramo St.,<br/>Pasay City, Metro Manila</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-k">Email</span>
+        <a class="contact-row-v" href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-k">Phone</span>
+        <a class="contact-row-v num" href="tel:+639478624409">+63 947 862 4409</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-k">Facebook</span>
+        <a class="contact-row-v" href="https://www.facebook.com/CorsinoEnterprises" target="_blank" rel="noopener">facebook.com/CorsinoEnterprises</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-row-k">Hours</span>
+        <span class="contact-row-v">Mon–Sat, 8:00 AM – 6:00 PM</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-r reveal rd2">
+    <p class="form-heading">Send an enquiry</p>
+    <p class="form-note">Fill this in and it opens a pre-written email to our inbox — or write to us directly at <a href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a>.</p>
+    <form id="enquiryForm" novalidate>
+      <div class="form-grid">
+        <div class="form-band">
+          <div class="form-f"><label class="form-lbl" for="fname">First Name</label><input id="fname" name="fname" type="text" class="form-inp" placeholder="Juan" autocomplete="given-name" autocapitalize="words" required/></div>
+          <div class="form-f"><label class="form-lbl" for="lname">Last Name</label><input id="lname" name="lname" type="text" class="form-inp" placeholder="Dela Cruz" autocomplete="family-name" autocapitalize="words" required/></div>
+        </div>
+        <div class="form-band">
+          <div class="form-f"><label class="form-lbl" for="email">Email Address</label><input id="email" name="email" type="email" class="form-inp" placeholder="juan@company.com" autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" required/></div>
+          <div class="form-f"><label class="form-lbl" for="phone">Contact Number</label><input id="phone" name="phone" type="tel" class="form-inp" placeholder="0917 000 0000" autocomplete="tel" inputmode="tel"/></div>
+        </div>
+        <div class="form-band">
+          <div class="form-f form-f-full">
+            <label class="form-lbl" for="service">Service Required</label>
+            <select id="service" name="service" class="form-sel">
+              <option value="">Select a service…</option>
+              <option>Die Making</option>
+              <option>Die Cutting</option>
+              <option>Thermal Lamination</option>
+              <option>UV Lamination</option>
+              <option>Window Type Lamination</option>
+              <option>Dry Emboss</option>
+              <option>3D Spot UV</option>
+              <option>Paper Bag Making</option>
+              <option>Custom Box Packaging</option>
+              <option>Automated Gluing</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-band">
+          <div class="form-f form-f-full"><label class="form-lbl" for="details">Project Details</label><textarea id="details" name="details" class="form-ta" placeholder="Describe your project — quantities, materials, timeline, and any specific requirements."></textarea></div>
+        </div>
+      </div>
+      <button type="submit" class="form-btn">Submit Enquiry</button>
+      <p class="form-alt">Prefer to talk? Call <a href="tel:+639478624409" class="num">+63 947 862 4409</a> — Mon to Sat, 8AM–6PM.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-brand">
+        <img src="images/logo.png" alt="" width="36" height="22" loading="lazy"/>
+        <span class="foot-brand-text">Corsino<small>Enterprises</small></span>
+      </div>
+      <p class="foot-desc">Economical and quality service in precision finishing and packaging. Pasay City, Metro Manila, Philippines.</p>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/CorsinoEnterprises" target="_blank" rel="noopener" aria-label="Corsino Enterprises on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a href="mailto:corsinoenterprises@gmail.com" aria-label="Email Corsino Enterprises">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        </a>
+        <a href="tel:+639478624409" aria-label="Call Corsino Enterprises">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <p class="foot-col-title">Services</p>
+      <ul class="foot-links">
+        <li><a href="#services">Die Making &amp; Cutting</a></li>
+        <li><a href="#services">Thermal Lamination</a></li>
+        <li><a href="#services">UV Lamination</a></li>
+        <li><a href="#services">Window Lamination</a></li>
+        <li><a href="#services">3D Spot UV</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-col-title">More Services</p>
+      <ul class="foot-links">
+        <li><a href="#services">Dry Emboss</a></li>
+        <li><a href="#services">Paper Bag Making</a></li>
+        <li><a href="#services">Custom Boxes</a></li>
+        <li><a href="#services">Automated Gluing</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="foot-col-title">Visit / Contact</p>
+      <ul class="foot-links">
+        <li><a href="https://maps.google.com/?q=219+Vergel+corner+Tramo+Street+Pasay+City" target="_blank" rel="noopener">219 Vergel cor. Tramo St.,<br/>Pasay City, Metro Manila</a></li>
+        <li><a href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a></li>
+        <li><a href="tel:+639478624409" class="num">+63 947 862 4409</a></li>
+        <li><span>Mon–Sat, 8:00 AM – 6:00 PM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span class="num" id="year">2026</span> Corsino Enterprises. All rights reserved.</span>
+    <span>Pasay City, Philippines</span>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a href="tel:+639478624409">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call
+  </a>
+  <a href="mailto:corsinoenterprises@gmail.com">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+    Email
+  </a>
+  <a href="#contact" class="primary">Get a Quote</a>
+</div>
+
+<!-- Local business structured data (helps Google show the address, phone and hours) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Corsino Enterprises",
+  "description": "Precision packaging and finishing: die making, die cutting, thermal and UV lamination, window lamination, 3D spot UV, dry emboss, paper bag making, custom box packaging and automated gluing.",
+  "image": "images/hero-1600.jpg",
+  "logo": "images/logo.png",
+  "email": "corsinoenterprises@gmail.com",
+  "telephone": "+63 947 862 4409",
+  "sameAs": ["https://www.facebook.com/CorsinoEnterprises"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "219 Vergel corner Tramo Street",
+    "addressLocality": "Pasay City",
+    "addressRegion": "Metro Manila",
+    "addressCountry": "PH"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  }],
+  "priceRange": "$$"
+}
+</script>
+
+<script>
+  (function () {
+    'use strict';
+
+    // Sticky nav border
+    var nav = document.getElementById('nav');
+    var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 40); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Scroll reveal
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function (el) { obs.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    // Mobile menu
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobileMenu');
+    var setMenu = function (open) {
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu.classList.toggle('open', open);
+      document.body.classList.toggle('menu-open', open);
+    };
+    burger.addEventListener('click', function () {
+      setMenu(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { setMenu(false); }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 900) { setMenu(false); }
+    });
+
+    // Active section in nav
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-center a'));
+    var sections = links
+      .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+      .filter(Boolean);
+    if ('IntersectionObserver' in window && sections.length) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          links.forEach(function (a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(function (s) { spy.observe(s); });
+    }
+
+    // Footer year
+    var y = document.getElementById('year');
+    if (y) { y.textContent = new Date().getFullYear(); }
+
+    // Enquiry form -> opens a pre-filled email (works on a static host, no backend needed)
+    var form = document.getElementById('enquiryForm');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.form-btn');
+      var get = function (id) { return (document.getElementById(id).value || '').trim(); };
+      var fname = get('fname'), lname = get('lname'), email = get('email');
+
+      if (!fname || !lname || !email || !/^\S+@\S+\.\S+$/.test(email)) {
+        btn.textContent = 'Please complete name and email';
+        btn.style.background = '#c8102e';
+        setTimeout(function () { btn.textContent = 'Submit Enquiry'; btn.style.background = ''; }, 2600);
+        return;
+      }
+
+      var service = get('service') || 'Not specified';
+      var subject = 'Website enquiry — ' + service + ' — ' + fname + ' ' + lname;
+      var body = [
+        'Name: ' + fname + ' ' + lname,
+        'Email: ' + email,
+        'Contact number: ' + (get('phone') || '—'),
+        'Service required: ' + service,
+        '',
+        'Project details:',
+        get('details') || '—',
+        '',
+        '— Sent from corsinoenterprises.com'
+      ].join('\n');
+
+      window.location.href = 'mailto:corsinoenterprises@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      btn.textContent = 'Opening your email app…';
+      btn.style.background = '#1a6b35';
+      setTimeout(function () { btn.textContent = 'Submit Enquiry'; btn.style.background = ''; }, 4500);
+    });
+  })();
+</script>
+</body>
+</html>
