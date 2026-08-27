@@ -26,8 +26,12 @@
   <meta name="twitter:description" content="Precision packaging and finishing in Pasay City, Metro Manila."/>
   <meta name="twitter:image" content="https://www.corsinoenterprises.com/hero-1600.jpg"/>
 
-  <link rel="icon" type="image/png" href="favicon.png"/>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <!-- Google reads the favicon for search results; it wants a square icon
+       whose size is a multiple of 48, and it also probes /favicon.ico -->
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon.png"/>
+  <link rel="icon" type="image/png" sizes="256x256" href="icon-256.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -1525,6 +1529,44 @@
     // Footer year
     var y = document.getElementById('year');
     if (y) { y.textContent = new Date().getFullYear(); }
+
+    /* Keep the address bar clean.
+       Anchor links still scroll to their section, but we scroll manually and
+       then rewrite the URL back to "/" so "#services" never shows. The href
+       stays in the markup, so this degrades to normal anchor behaviour if
+       JavaScript is off, and search engines still see the links. */
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      var target = document.querySelector(id);
+      if (!target) return;
+
+      e.preventDefault();
+      var navH = parseInt(getComputedStyle(document.documentElement)
+        .getPropertyValue('--nav-h'), 10) || 68;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - navH - 8;
+
+      window.scrollTo({ top: top, behavior: prefersReduced ? 'auto' : 'smooth' });
+
+      // Move keyboard focus too, so this stays usable without a mouse.
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+
+      if (window.history && history.replaceState) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    });
+
+    // Someone arriving at /#services from an old link still lands correctly,
+    // then we tidy the URL behind them.
+    if (window.location.hash && history.replaceState) {
+      window.setTimeout(function () {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }, 600);
+    }
 
     // Enquiry form -> opens a pre-filled email (works on a static host, no backend needed)
     /* ─────────────────────────────────────────────────────────────
