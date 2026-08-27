@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Die Cutting, Lamination &amp; Custom Box Packaging — Corsino Enterprises, Pasay City</title>
 
-  <meta name="description" content="Die making, die cutting, thermal and UV lamination, 3D spot UV, dry emboss, paper bag making and custom box packaging in Pasay City, Metro Manila. Economical, quality finishing for printers and brands. Call +63 947 862 4409 for a free quote."/>
+  <meta name="description" content="Die making, die cutting, thermal and UV lamination, 3D spot UV, dry emboss, paper bag making and custom box packaging in Pasay City, Metro Manila. Economical, quality finishing for printers and brands. Call or Viber 0917 314 0876 for a free quote."/>
   <meta name="theme-color" content="#0a0a0a"/>
   <link rel="canonical" href="https://www.corsinoenterprises.com/"/>
   <meta name="robots" content="index, follow, max-image-preview:large"/>
@@ -568,14 +568,21 @@
     }
     .contact-card-v small { display: block; font-size: 0.8rem; color: var(--faint); margin-top: 0.2rem; font-weight: 300; }
 
-    /* ── MAP ── */
+    /* ── MAP ──
+       Full-bleed map with the card floating over it. z-index keeps the card
+       cleanly on top of Google's own place popup rather than tangling with it. */
     #map { position: relative; border-top: 1px solid var(--rule); background: var(--bg); }
-    .map-frame { display: block; width: 100%; height: 440px; border: 0; filter: grayscale(1) contrast(1.06); transition: filter .5s var(--ease); }
+    .map-frame {
+      display: block; width: 100%; height: 480px; border: 0;
+      filter: grayscale(1) contrast(1.06); transition: filter .5s var(--ease);
+    }
     #map:hover .map-frame { filter: grayscale(0) contrast(1); }
     .map-card {
-      position: absolute; top: 50%; left: 4rem; transform: translateY(-50%);
-      background: var(--white); padding: 2.25rem 2.25rem 2rem;
-      max-width: 340px; box-shadow: 0 18px 50px rgba(0,0,0,0.13);
+      position: absolute; z-index: 2;
+      top: 50%; left: 4rem; transform: translateY(-50%);
+      background: var(--white); padding: 2.5rem 2.5rem 2.25rem;
+      width: 340px; max-width: calc(100% - 8rem);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.16);
       border-top: 3px solid var(--red);
     }
     .map-card-k {
@@ -739,6 +746,7 @@
       .about-body, .contact-l, .contact-r { padding: 4.5rem 2.5rem; }
       #cta { padding: 5.5rem 2rem; }
       footer { padding: 0 2rem; }
+      .map-card { left: 2rem; max-width: calc(100% - 4rem); }
       .svc-grid { grid-template-columns: repeat(2, 1fr); }
       .svc-feat { grid-column: span 2; }
       .svc-prompt { grid-column: span 1; flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem; }
@@ -803,11 +811,11 @@
 
       .mobile-bar { display: flex; }
 
-      /* Map: card sits under the map rather than floating over it */
-      .map-frame { height: 300px; }
+      /* Map: card drops below the map on a phone — no room to float */
+      .map-frame { height: 320px; }
       .map-card {
-        position: static; transform: none; max-width: none;
-        padding: 2rem 1.5rem; box-shadow: none;
+        position: static; transform: none; width: auto; max-width: none;
+        padding: 2.25rem 1.5rem; box-shadow: none;
         border-top: 3px solid var(--red);
       }
       .map-card .btn-primary { display: block; text-align: center; }
@@ -946,9 +954,13 @@
   <a class="mm-link" href="#process">Process</a>
   <a class="mm-link" href="#contact">Contact</a>
   <div class="mm-foot">
-    <a href="tel:+639478624409">
+    <a href="tel:+639173140876">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span class="num">+63 947 862 4409</span>
+      <span class="num">0917 314 0876 &middot; Viber</span>
+    </a>
+    <a href="tel:+63288427692">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15h16v5H4z"/><path d="M6 15V8a6 6 0 0 1 12 0v7"/></svg>
+      <span class="num">(02) 8842 7692</span>
     </a>
     <a href="mailto:corsinoenterprises@gmail.com">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
@@ -1247,19 +1259,33 @@
         </span>
         <span class="contact-card-v">221 Vergel corner Tramo St., Pasay City<small>Metro Manila, Philippines — tap for directions</small></span>
       </a>
+      <a class="contact-card" href="tel:+639173140876">
+        <span class="contact-card-top">
+          <span class="contact-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg></span>
+          <span class="contact-card-k">Mobile &amp; Viber</span>
+        </span>
+        <span class="contact-card-v num">0917 314 0876</span>
+      </a>
       <a class="contact-card" href="tel:+639478624409">
         <span class="contact-card-top">
           <span class="contact-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-          <span class="contact-card-k">Call Us</span>
+          <span class="contact-card-k">Mobile</span>
         </span>
-        <span class="contact-card-v num">+63 947 862 4409</span>
+        <span class="contact-card-v num">0947 862 4409</span>
+      </a>
+      <a class="contact-card" href="tel:+63288427692">
+        <span class="contact-card-top">
+          <span class="contact-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15h16v5H4z"/><path d="M6 15V8a6 6 0 0 1 12 0v7"/><path d="M7 17.5h3M14 17.5h3"/></svg></span>
+          <span class="contact-card-k">Telephone</span>
+        </span>
+        <span class="contact-card-v num">(02) 8842 7692</span>
       </a>
       <a class="contact-card" href="mailto:corsinoenterprises@gmail.com">
         <span class="contact-card-top">
           <span class="contact-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
           <span class="contact-card-k">Email Us</span>
         </span>
-        <span class="contact-card-v">corsinoenterprises@gmail.com</span>
+        <span class="contact-card-v">corsinoenterprises@gmail.com<small>sales02.corsinoenterprises@gmail.com</small></span>
       </a>
       <a class="contact-card" href="https://www.facebook.com/CorsinoEnterprises" target="_blank" rel="noopener">
         <span class="contact-card-top">
@@ -1273,13 +1299,13 @@
           <span class="contact-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
           <span class="contact-card-k">Open Hours</span>
         </span>
-        <span class="contact-card-v">Mon – Sat, 8AM – 6PM<small>Closed Sundays &amp; holidays</small></span>
+        <span class="contact-card-v">Mon – Sat, 8AM – 5PM<small>Closed Sundays &amp; holidays</small></span>
       </div>
     </div>
   </div>
   <div class="contact-r reveal rd2">
     <p class="form-heading">Send an enquiry</p>
-    <p class="form-note">Fill this in and it opens a pre-written email to our inbox — or write to us directly at <a href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a>.</p>
+    <p class="form-note">Fill this in and it reaches our sales team directly — or write to <a href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a>.</p>
     <form id="enquiryForm" novalidate>
       <div class="form-grid">
         <div class="form-band">
@@ -1317,7 +1343,7 @@
       <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true"/>
       <button type="submit" class="form-btn">Submit Enquiry</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-      <p class="form-alt">Prefer to talk? Call <a href="tel:+639478624409" class="num">+63 947 862 4409</a> — Mon to Sat, 8AM–6PM.</p>
+      <p class="form-alt">Prefer to talk? Call or Viber <a href="tel:+639173140876" class="num">0917 314 0876</a> &middot; Tel <a href="tel:+63288427692" class="num">(02) 8842 7692</a> — Mon to Sat, 8AM–5PM.</p>
     </form>
   </div>
 </section>
@@ -1333,7 +1359,7 @@
   <div class="map-card">
     <p class="map-card-k">Find Us</p>
     <p class="map-card-t">Pasay City,<br/>Metro Manila</p>
-    <p class="map-card-a">221 Vergel corner Tramo Street<br/>Open Mon – Sat, 8AM – 6PM</p>
+    <p class="map-card-a">221 Vergel corner Tramo Street<br/>Open Mon – Sat, 8AM – 5PM</p>
     <a class="btn-primary" href="https://maps.google.com/?q=221+Vergel+corner+Tramo+Street+Pasay+City" target="_blank" rel="noopener">Get Directions</a>
   </div>
 </section>
@@ -1385,8 +1411,11 @@
       <ul class="foot-links">
         <li><a href="https://maps.google.com/?q=221+Vergel+corner+Tramo+Street+Pasay+City" target="_blank" rel="noopener">221 Vergel cor. Tramo St.,<br/>Pasay City, Metro Manila</a></li>
         <li><a href="mailto:corsinoenterprises@gmail.com">corsinoenterprises@gmail.com</a></li>
-        <li><a href="tel:+639478624409" class="num">+63 947 862 4409</a></li>
-        <li><span>Mon–Sat, 8:00 AM – 6:00 PM</span></li>
+        <li><a href="mailto:sales02.corsinoenterprises@gmail.com">sales02.corsinoenterprises@gmail.com</a></li>
+        <li><a href="tel:+639173140876" class="num">0917 314 0876 <span style="opacity:.6">(Viber)</span></a></li>
+        <li><a href="tel:+639478624409" class="num">0947 862 4409</a></li>
+        <li><a href="tel:+63288427692" class="num">(02) 8842 7692</a></li>
+        <li><span>Mon–Sat, 8:00 AM – 5:00 PM</span></li>
       </ul>
     </div>
   </div>
@@ -1422,7 +1451,12 @@
   "image": "https://www.corsinoenterprises.com/hero-1600.jpg",
   "logo": "https://www.corsinoenterprises.com/logo.png",
   "email": "corsinoenterprises@gmail.com",
-  "telephone": "+63 947 862 4409",
+  "telephone": "+63 917 314 0876",
+  "contactPoint": [
+    { "@type": "ContactPoint", "telephone": "+63 917 314 0876", "contactType": "sales", "areaServed": "PH", "availableLanguage": ["en","tl"] },
+    { "@type": "ContactPoint", "telephone": "+63 947 862 4409", "contactType": "sales", "areaServed": "PH" },
+    { "@type": "ContactPoint", "telephone": "+63 2 8842 7692", "contactType": "customer service", "areaServed": "PH" }
+  ],
   "sameAs": ["https://www.facebook.com/CorsinoEnterprises"],
   "address": {
     "@type": "PostalAddress",
@@ -1442,7 +1476,7 @@
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
     "opens": "08:00",
-    "closes": "18:00"
+    "closes": "17:00"
   }],
   "priceRange": "$$",
   "hasOfferCatalog": {
@@ -1580,7 +1614,16 @@
        Until a key is set, the form falls back to opening the visitor's
        email app with everything pre-filled, exactly as it does today.
        ───────────────────────────────────────────────────────────── */
-    var ACCESS_KEY = 'PASTE_YOUR_WEB3FORMS_KEY_HERE';
+    /* Web3Forms' built-in CC is a paid feature, so instead we send the same
+       enquiry to two free inboxes — one access key per Gmail account.
+       Get each key (free, 30 seconds, no account) at https://web3forms.com:
+       enter the address, they email you its key, paste it below.
+       Leave either as-is and it is simply skipped. */
+    var ACCESS_KEYS = [
+      'f543ae27-eb84-45a0-8849-d933fd995566',   /* corsinoenterprises@gmail.com */
+      'PASTE_KEY_FOR_sales02.corsinoenterprises@gmail.com'
+    ];
+    var MAIL_TO = 'corsinoenterprises@gmail.com,sales02.corsinoenterprises@gmail.com';
 
     var form = document.getElementById('enquiryForm');
     var btn = form.querySelector('.form-btn');
@@ -1611,21 +1654,25 @@
 
       var service = get('service') || 'Not specified';
       var subject = 'Website enquiry — ' + service + ' — ' + fname + ' ' + lname;
+      var lines = [
+        'Name: ' + fname + ' ' + lname,
+        'Email: ' + email,
+        'Contact number: ' + (get('phone') || '—'),
+        'Service required: ' + service,
+        '',
+        'Project details:',
+        get('details') || '—'
+      ];
 
-      // No key configured yet → keep the old pre-filled-email behaviour.
-      if (!ACCESS_KEY || ACCESS_KEY.indexOf('PASTE_YOUR') === 0) {
-        var body = [
-          'Name: ' + fname + ' ' + lname,
-          'Email: ' + email,
-          'Contact number: ' + (get('phone') || '—'),
-          'Service required: ' + service,
-          '',
-          'Project details:',
-          get('details') || '—'
-        ].join('\n');
-        window.location.href = 'mailto:corsinoenterprises@gmail.com'
+      var keys = ACCESS_KEYS.filter(function (k) {
+        return k && k.indexOf('PASTE_KEY_FOR') !== 0;
+      });
+
+      /* No keys configured yet → open a pre-filled email to both inboxes. */
+      if (!keys.length) {
+        window.location.href = 'mailto:' + MAIL_TO
           + '?subject=' + encodeURIComponent(subject)
-          + '&body=' + encodeURIComponent(body);
+          + '&body=' + encodeURIComponent(lines.join('\n'));
         say('Opening your email app — press send to finish.', 'ok');
         return;
       }
@@ -1634,36 +1681,42 @@
       btn.textContent = 'Sending…';
       say('Sending your enquiry…');
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: subject,
-          from_name: 'Corsino Enterprises website',
-          replyto: email,
-          'Name': fname + ' ' + lname,
-          'Email': email,
-          'Contact number': get('phone') || '—',
-          'Service required': service,
-          'Project details': get('details') || '—'
+      var payload = {
+        subject: subject,
+        from_name: 'Corsino Enterprises website',
+        replyto: email,
+        'Name': fname + ' ' + lname,
+        'Email': email,
+        'Contact number': get('phone') || '—',
+        'Service required': service,
+        'Project details': get('details') || '—'
+      };
+
+      /* One POST per inbox. We treat it as delivered if ANY of them lands,
+         so a single failing key never loses the enquiry. */
+      Promise.all(keys.map(function (key) {
+        var data = JSON.parse(JSON.stringify(payload));
+        data.access_key = key;
+        return fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
         })
-      })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (data.success) {
+        .then(function (r) { return r.json(); })
+        .then(function (d) { return !!d.success; })
+        .catch(function () { return false; });
+      }))
+      .then(function (results) {
+        if (results.some(Boolean)) {
           form.reset();
           btn.style.background = '#1a6b35';
           btn.textContent = 'Enquiry sent ✓';
           say('Thank you — your enquiry is in. We usually reply within one business day.', 'ok');
           setTimeout(resetBtn, 5000);
         } else {
-          throw new Error(data.message || 'Submission failed');
+          resetBtn();
+          say('Sorry — that did not send. Please email corsinoenterprises@gmail.com or call 0917 314 0876.', 'err');
         }
-      })
-      .catch(function () {
-        resetBtn();
-        say('Sorry — that did not send. Please email corsinoenterprises@gmail.com or call +63 947 862 4409.', 'err');
       });
     });
   })();
