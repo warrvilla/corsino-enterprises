@@ -117,10 +117,14 @@
       font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
     }
     .skip:focus { left: 0; }
-    a:focus-visible, button:focus-visible, input:focus-visible,
-    select:focus-visible, textarea:focus-visible {
+    a:focus-visible, button:focus-visible {
       outline: 2px solid var(--red); outline-offset: 3px;
     }
+    /* Form fields get a quieter treatment — a hard ring around a box you are
+       typing into is distracting. The field tints and draws a red underline
+       instead, which still clearly marks focus. */
+    .form-inp:focus-visible, .form-sel:focus-visible, .form-ta:focus-visible,
+    .form-inp:focus, .form-sel:focus, .form-ta:focus { outline: none; }
 
     /* ── NAV ── */
     nav {
@@ -617,6 +621,13 @@
       color: var(--black); padding: 0.35rem 1.2rem 0.9rem; width: 100%;
       transition: background .2s; -webkit-appearance: none; border-radius: 0;
     }
+    .form-f { position: relative; }
+    .form-f::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
+      transition: transform .28s var(--ease); pointer-events: none;
+    }
+    .form-f:focus-within::after { transform: scaleX(1); }
     .form-f:focus-within { background: #fafaf8; }
     .form-ta { resize: vertical; min-height: 105px; font-family: var(--sans); }
     /* appearance:none strips the native arrow — put one back so it still reads as a dropdown */
